@@ -27,3 +27,7 @@ az vm create \
 echo "✅ Deployment complete! Fetching Public IP Address..."
 az vm list-ip-addresses --resource-group "$RESOURCE_GROUP" --name "$VM_NAME" \
   --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" -o tsv
+
+ Connect via SSH
+echo "Connecting to the VM..."
+ssh azureuser@$PUBLIC_IP
